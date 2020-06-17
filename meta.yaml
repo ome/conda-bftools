@@ -1,14 +1,14 @@
 package:
   name: "bftools"
-  version: "6.5.1"
+  version: "6.5.0"
 
 build:
   noarch: generic
   number: 1
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/6.5.1/artifacts/bftools.zip
-  sha256: 9dba6415f54607834c15f4bf9ce805d38f209ff7374bf7196e84620792361016
+  url: https://downloads.openmicroscopy.org/bio-formats/6.5.0/artifacts/bftools.zip
+  sha256: fbe9fd9c7d445e152c48eb0841e4519591f6dc97471c854eba250406f8389d44
 
 requirements:
   host:
