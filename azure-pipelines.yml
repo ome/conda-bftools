@@ -27,8 +27,6 @@ stages:
       vmImage: 'ubuntu-16.04'
     strategy:
       matrix:
-        Python36:
-          python.version: '3.6'
         Python37:
           python.version: '3.7'
 
@@ -53,8 +51,6 @@ stages:
       vmImage: 'macOS-10.14'
     strategy:
       matrix:
-        Python36:
-          python.version: '3.6'
         Python37:
           python.version: '3.7'
 
@@ -94,8 +90,6 @@ stages:
       vmImage: 'vs2017-win2016'
     strategy:
       matrix:
-        Python36:
-          python.version: '3.6'
         Python37:
           python.version: '3.7'
 
