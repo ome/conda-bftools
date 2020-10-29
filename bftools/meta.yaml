@@ -16,7 +16,15 @@ requirements:
 
 test:
   commands:
+    - bfconvert a.fake a.tiff
+    - domainlist
+    - formatlist
+    # - ijview
+    - mkfake test
     - showinf -nopix a.fake
+    - tiffcomment a.tiff
+    # - xmlindent
+    # - xmlvalid
 
 extra:
   recipe-maintainers:
