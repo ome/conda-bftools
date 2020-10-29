@@ -1,17 +1,17 @@
 package:
   name: "bftools"
-  version: "6.5.0"
+  version: "6.5.1"
 
 build:
-  number: 3
+  number: 0
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/6.5.0/artifacts/bftools.zip
-  sha256: fbe9fd9c7d445e152c48eb0841e4519591f6dc97471c854eba250406f8389d44
+  url: https://downloads.openmicroscopy.org/bio-formats/{{ PKG_VERSION }}/artifacts/bftools.zip
+  sha256: 45f801a4ab7a708cd461a3e9cfd790376feece3ddc77d395a372816fc8833681
 
 requirements:
-  host:
   run:
+    - bftools-libs={{ PKG_VERSION }}-{{ PKG_BUILDNUM }}
     - openjdk
 
 test:
