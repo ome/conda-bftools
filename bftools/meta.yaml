@@ -1,22 +1,30 @@
 package:
   name: "bftools"
-  version: "6.5.0"
+  version: "6.6.0"
 
 build:
-  number: 3
+  number: 0
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/6.5.0/artifacts/bftools.zip
-  sha256: fbe9fd9c7d445e152c48eb0841e4519591f6dc97471c854eba250406f8389d44
+  url: https://downloads.openmicroscopy.org/bio-formats/{{ PKG_VERSION }}/artifacts/bftools.zip
+  sha256: d13553047ac552327107e029a077e32b48a7e0f7e028cf4c04d81539f2f56a21
 
 requirements:
-  host:
   run:
+    - bftools-libs={{ PKG_VERSION }}-{{ PKG_BUILDNUM }}
     - openjdk
 
 test:
   commands:
+    - bfconvert a.fake a.tiff
+    - domainlist
+    - formatlist
+    # - ijview
+    - mkfake test
     - showinf -nopix a.fake
+    - tiffcomment a.tiff
+    # - xmlindent
+    # - xmlvalid
 
 extra:
   recipe-maintainers:
