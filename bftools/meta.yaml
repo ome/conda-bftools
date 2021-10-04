@@ -1,17 +1,19 @@
+{% set version = "6.6.0" %}
+
 package:
   name: "bftools"
-  version: "6.6.0"
+  version: "{{ version }}{{ environ.get('VERSION_SUFFIX', '') }}"
 
 build:
   number: 0
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/{{ PKG_VERSION }}/artifacts/bftools.zip
+  url: https://downloads.openmicroscopy.org/bio-formats/{{ version }}/artifacts/bftools.zip
   sha256: d13553047ac552327107e029a077e32b48a7e0f7e028cf4c04d81539f2f56a21
 
 requirements:
   run:
-    - bftools-libs={{ PKG_VERSION }}-{{ PKG_BUILDNUM }}
+    - bftools-libs={{ version }}-{{ PKG_BUILDNUM }}
     - openjdk
 
 test:
