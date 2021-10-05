@@ -2,7 +2,7 @@
 
 package:
   name: "bftools"
-  version: "{{ version }}{{ environ.get('VERSION_SUFFIX', '') }}"
+  version: "{{ version }}"
 
 build:
   number: 0
