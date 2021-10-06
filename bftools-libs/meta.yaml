@@ -1,13 +1,15 @@
+{% set version = "6.6.0" %}
+
 package:
   name: "bftools-libs"
-  version: "6.6.0"
+  version: "{{ version }}"
 
 build:
   number: 0
   noarch: generic
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/{{ PKG_VERSION }}/artifacts/bftools.zip
+  url: https://downloads.openmicroscopy.org/bio-formats/{{ version }}/artifacts/bftools.zip
   sha256: d13553047ac552327107e029a077e32b48a7e0f7e028cf4c04d81539f2f56a21
 
 extra:
