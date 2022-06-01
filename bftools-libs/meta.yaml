@@ -1,4 +1,4 @@
-{% set version = "6.9.1" %}
+{% set version = "6.10.0" %}
 
 package:
   name: "bftools-libs"
@@ -10,7 +10,7 @@ build:
 
 source:
   url: https://downloads.openmicroscopy.org/bio-formats/{{ version }}/artifacts/bftools.zip
-  sha256: d896b384f4d4789927391683e8eee6c76785a434de6e159951ed717b9c82f2f3
+  sha256: 4131438e6c2b8cefbd9c7795e3c42b68d32082d04426217dafd924ed974d1a9d
 
 extra:
   recipe-maintainers:
