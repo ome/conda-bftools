@@ -1,4 +1,4 @@
-{% set version = "6.14.0" %}
+{% set version = "7.0.0" %}
 
 package:
   name: "bftools"
@@ -9,7 +9,7 @@ build:
 
 source:
   url: https://downloads.openmicroscopy.org/bio-formats/{{ version }}/artifacts/bftools.zip
-  sha256: b4a5fa81edde9eb1174284ec5af0cdc8b079b431df400a038c55c1ee93323595
+  sha256: dc436292a5f3e1a2051ccaebf5d3e9e906d7550d0b93b0dadc9277873ca9cb2e
 
 requirements:
   run:
