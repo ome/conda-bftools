@@ -52,12 +52,12 @@ jobs:
       # - bftools-libs noarch from one job
       # - bftools *-64 from all jobs
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           path: "${{ steps.condablddir.outputs.condabld }}/noarch/bftools-libs-*"
           if-no-files-found: error
         if: matrix.os == 'ubuntu-latest'
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           # {linux,osx,win}-64
           path: "${{ steps.condablddir.outputs.condabld }}/*-64/bftools-*"
@@ -74,7 +74,7 @@ jobs:
       - run: conda install -y -q anaconda-client
 
       - name: Download artifacts from build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
       - name: List artifacts
         run: ls -R
 
