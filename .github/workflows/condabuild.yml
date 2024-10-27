@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
     steps:
       - name: setup-conda
-        uses: s-weigand/setup-conda@v1.0.7
+        uses: s-weigand/setup-conda@v1.2.3
         with:
           update-conda: true
 
