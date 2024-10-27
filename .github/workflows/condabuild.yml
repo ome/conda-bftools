@@ -36,6 +36,7 @@ jobs:
           echo "${{ steps.condablddir.outputs.condabld }}"
           mkdir ${{ steps.condablddir.outputs.condabld }}
           conda config --set conda_build.output_folder ${{ steps.condablddir.outputs.condabld }}
+          conda config --add channels defaults
 
       - name: Checkout
         uses: actions/checkout@v4
