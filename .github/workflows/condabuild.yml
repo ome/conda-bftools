@@ -6,19 +6,20 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}    
     strategy:
       matrix:
-        os:
-          - macos-12
-          - ubuntu-latest
-          - windows-latest
+        os: [macos-12, ubuntu-latest, windows-latest]
       fail-fast: false
     steps:
       - name: setup-conda
-        uses: s-weigand/setup-conda@v1.2.3
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          update-conda: true
+          miniconda-version: "latest"
+          channels:  conda-forge, defaults
+          use-only-tar-bz2: true  # IMPORTANT: This needs to be set for caching to work properly!
+          auto-update-conda: true
+          auto-activate-base: true
 
       - name: Set conda-bld output folder to make it easier to find artifacts
         id: condablddir
@@ -33,9 +34,11 @@ jobs:
         shell: bash
 
       - run: |
+          conda --version
           echo "${{ steps.condablddir.outputs.condabld }}"
           mkdir ${{ steps.condablddir.outputs.condabld }}
           conda config --set conda_build.output_folder ${{ steps.condablddir.outputs.condabld }}
+          conda config --set channel_priority disabled
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,22 +47,26 @@ jobs:
 
       - name: Build bftools-libs
         run: conda build bftools-libs
+        shell: bash -el {0}
       - name: Build bftools
         run: conda build bftools
+        shell: bash -el {0}
+      
       - run: ls -R "${{ steps.condablddir.outputs.condabld }}"
-
       # We want
       # - bftools-libs noarch from one job
       # - bftools *-64 from all jobs
 
       - uses: actions/upload-artifact@v4
         with:
+          name: artifact-noarch
           path: "${{ steps.condablddir.outputs.condabld }}/noarch/bftools-libs-*"
           if-no-files-found: error
-        if: matrix.os == 'ubuntu-latest'
+        if: startsWith(matrix.os, 'ubuntu')
       - uses: actions/upload-artifact@v4
         with:
           # {linux,osx,win}-64
+          name: artifact-${{ matrix.os }}-64
           path: "${{ steps.condablddir.outputs.condabld }}/*-64/bftools-*"
           if-no-files-found: error
 
