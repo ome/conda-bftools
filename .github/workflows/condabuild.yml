@@ -72,7 +72,7 @@ jobs:
         with:
           # {linux,osx,win}-64
           name: artifact-${{ matrix.os }}-64
-          path: "${{ steps.condablddir.outputs.condabld }}/*-64/bftools-*"
+          path: "${{ steps.condablddir.outputs.condabld }}/*64/bftools-*"
           if-no-files-found: error
 
   upload:
