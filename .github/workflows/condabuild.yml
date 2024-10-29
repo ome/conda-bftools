@@ -77,7 +77,12 @@ jobs:
     steps:
 
       - name: setup-conda
-        uses: s-weigand/setup-conda@v1.0.7
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniconda-version: "latest"
+          channels: defaults
+          auto-update-conda: true
+          auto-activate-base: true
       - run: conda install -y -q anaconda-client
 
       - name: Download artifacts from build
