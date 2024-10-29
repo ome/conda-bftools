@@ -93,7 +93,7 @@ jobs:
       - name: Upload to Anaconda Cloud
         run: |
           anaconda whoami
-          for f in artifact/bftools* artifact/*/bftools*; do
+          for f in artifact*/bftools* artifact*/*/bftools*; do
             anaconda upload --user ${ANACONDA_USER} $f
           done
         env:
