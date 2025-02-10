@@ -101,7 +101,7 @@ jobs:
         run: |
           anaconda whoami
           for f in artifact*/bftools* artifact*/*/bftools*; do
-            anaconda upload --user ${ANACONDA_USER} $f
+            anaconda upload --user ${ANACONDA_USER} --force $f
           done
         env:
           ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
