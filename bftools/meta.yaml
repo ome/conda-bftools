@@ -1,4 +1,4 @@
-{% set version = "8.1.1" %}
+{% set version = "8.3.0" %}
 
 package:
   name: "bftools"
@@ -8,8 +8,9 @@ build:
   number: 0
 
 source:
-  url: https://downloads.openmicroscopy.org/bio-formats/{{ version }}/artifacts/bftools.zip
-  sha256: 338cade0a24c989b398993f5a4ef013e79d54bb5d8b133356755db2243dc630e
+  url: https://downloads.openmicroscopy.org/bio-formats/{{ version 
+    }}/artifacts/bftools.zip
+  sha256: e85a7fbe8288f3903d82d74f5e9827563786948f6451ac0aef8a8a192b4e105a
 
 requirements:
   run:
@@ -37,5 +38,6 @@ about:
   license: GNU General Public v2 or later (GPLv2+)
   license_family: GPL2
   summary: Bio-Formats command line tools
-  doc_url: https://docs.openmicroscopy.org/bio-formats/latest/users/comlinetools/index.html
+  doc_url: 
+    https://docs.openmicroscopy.org/bio-formats/latest/users/comlinetools/index.html
   dev_url: https://github.com/ome/bioformats
